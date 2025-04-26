@@ -6,8 +6,8 @@ from django.urls import include, path
 from core.swagger.schema import swagger_urlpatterns
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/v1/common/', include("apps.users.urls"))
+    path('manage/', admin.site.urls),
+    path('', include('apps.front.urls')),
 ]
 
 urlpatterns += swagger_urlpatterns

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    {% include 'partials/hero.html' %}
+    
+    <!-- Business Section -->
+    {% include 'partials/business_section.html' %}
+    
+    <!-- Portfolio Gallery -->
+    {% include 'partials/portfolio_gallery.html' %}
+    
+    <!-- About Section -->
+    {% include 'partials/about_section.html' %}
+    
+    <!-- Contact Form -->
+    {% include 'partials/contact_form.html' %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+{% endblock %}

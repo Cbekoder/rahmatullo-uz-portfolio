@@ -1,0 +1,59 @@
+{% load static %}
+{% load custom_filters %}
+
+<section id="businesses" class="bg-white px-4 py-20 md:py-32">
+    <div class="mx-auto max-w-7xl">
+        <div class="mb-16 text-center">
+            <h2 data-aos="fade-up" class="mb-4 font-poppins text-3xl font-bold text-gray-900 md:text-4xl">
+                Mening bizneslarim
+            </h2>
+            <p data-aos="fade-up" data-aos-delay="200" class="mx-auto max-w-2xl text-lg text-gray-600">
+                Innovatsiya, sifat va barqaror o'sishga asoslangan turli xil korxonalar portfoliosi.
+            </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {% for business in businesses %}
+            <div
+                data-aos="fade-up"
+                data-aos-delay="{{ forloop.counter|add:"-1"|multiply:100 }}"
+                class="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1"
+            >
+                <div class="mb-4 inline-flex rounded-full p-3 {{ business.color }}">
+                    <!-- Dynamic icon based on the icon field -->
+                    {% if business.icon == 'truck' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M10 17h4V5H2v12h3m15-5h2v-2l-3-5h-6v7h2m0 0h5"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                    {% elif business.icon == 'package' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/><path d="M12 3v6"/></svg>
+                    {% elif business.icon == 'apple' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+                    {% elif business.icon == 'snowflake' %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></svg>
+                    {% else %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    {% endif %}
+                </div>
+                <h3 class="mb-3 font-poppins text-xl font-semibold text-gray-900">{{ business.name }}</h3>
+                <p class="mb-4 text-gray-600">{{ business.description }}</p>
+                <a href="#" class="inline-flex items-center text-sm font-medium text-sky-600 hover:text-sky-800">
+                    Batafsil
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="ml-1 h-4 w-4"
+                    >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
